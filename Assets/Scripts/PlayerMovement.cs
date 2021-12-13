@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] readonly float speed;
     void Update()
     {
-        transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed, 0));
+        transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
     } 
 }
