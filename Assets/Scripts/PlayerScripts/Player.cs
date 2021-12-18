@@ -5,21 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] GameObject spawnPoint;
-    public bool dead;
-    void Start()
-    {
-        dead = false;
-    }
-    void Update()
-    {
-        if (dead)
-        {
-            respawn();
-            dead = false;
-        }
-    }
-    void respawn()
+    public void respawn()
     {
         transform.position = spawnPoint.transform.position;
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
     }
 }

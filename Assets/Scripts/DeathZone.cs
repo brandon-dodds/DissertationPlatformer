@@ -7,6 +7,6 @@ public class DeathZone : MonoBehaviour
     public Player player;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        player.dead = true;
+        player.respawn();
     }
 }
