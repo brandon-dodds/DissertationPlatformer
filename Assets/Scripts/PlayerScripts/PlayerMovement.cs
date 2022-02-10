@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetAxis("Vertical") > 0)
         {
             jump();   
         }
