@@ -913,7 +913,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2109838023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1005,4 +1005,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1844526343}
-  dead: 0
