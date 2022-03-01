@@ -5,25 +5,32 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float jumpForce;
+    bool isGrounded;
+    [SerializeField] Transform feetPos;
+    [SerializeField] float checkRadius;
+    [SerializeField] LayerMask whatIsGround;
     Rigidbody2D rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    void Update()
+
+    void FixedUpdate()
     {
         transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
-        if (Input.GetAxis("Vertical") > 0)
+        if (Input.GetAxis("Vertical") > 0 && isGrounded)
         {
-            jump();   
+            jump();
         }
+    }
+    void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
     } 
 
     void jump()
     {
-        if(rb.velocity.y == 0)
-        {
-            rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
-        }
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
