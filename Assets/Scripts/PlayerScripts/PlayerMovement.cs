@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float actionCooldown;
     float timeSinceAction = 0.0f;
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
