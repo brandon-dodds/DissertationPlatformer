@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         {
             timeSinceAction += Time.deltaTime;
         }
-    }  
+    }
 
     void jump()
     {
