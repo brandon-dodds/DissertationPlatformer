@@ -25,16 +25,12 @@ public class PlayerMovement : MonoBehaviour
         {
             jump();
         }
-    }
-    void Update()
-    {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         if (isGrounded)
         {
             timeSinceAction += Time.deltaTime;
         }
-        
-    } 
+    }  
 
     void jump()
     {
