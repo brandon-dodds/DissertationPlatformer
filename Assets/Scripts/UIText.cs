@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 public class UIText : MonoBehaviour
 {
     [SerializeField] TMP_Text text_object;
@@ -14,6 +15,8 @@ public class UIText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TimeSpan time = TimeSpan.FromSeconds(Time.timeAsDouble);
+
+        text_object.text = time.ToString(@"mm\:ss\:ff");
     }
 }
