@@ -2706,7 +2706,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &2109838023
 SpriteRenderer:
@@ -2787,13 +2787,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 13
+  jumpForce: 20
   feetPos: {fileID: 1987223505}
-  checkRadius: 0.2
+  checkRadius: {x: 0.9, y: 0.2}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   actionCooldown: 0.2
+  jumpGravScale: 5
+  fallGravScale: 7
 --- !u!114 &2109838026
 MonoBehaviour:
   m_ObjectHideFlags: 0
