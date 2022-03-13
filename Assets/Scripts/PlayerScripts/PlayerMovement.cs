@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce;
     bool isGrounded;
     [SerializeField] Transform feetPos;
-    [SerializeField] float checkRadius;
+    [SerializeField] Vector2 checkRadius;
     [SerializeField] LayerMask whatIsGround;
     Rigidbody2D rb;
     [SerializeField] float actionCooldown;
+    [SerializeField] int jumpGravScale;
+    [SerializeField] int fallGravScale; 
     float timeSinceAction = 0.0f;
     private void Awake()
     {
@@ -21,18 +23,26 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
+        isGrounded = Physics2D.OverlapCapsule(feetPos.position, checkRadius, CapsuleDirection2D.Horizontal, 0f, whatIsGround);
         if (Input.GetAxis("Vertical") > 0 && isGrounded && timeSinceAction > actionCooldown)
         {
-            jump();
+            Jump();
         }
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         if (isGrounded)
         {
             timeSinceAction += Time.deltaTime;
         }
+        if(rb.velocity.y < 0)
+        {
+            rb.gravityScale = fallGravScale;
+        }
+        if(rb.velocity.y >= 0)
+        {
+            rb.gravityScale = jumpGravScale;
+        }
     }
 
-    void jump()
+    void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         timeSinceAction = 0.0f;

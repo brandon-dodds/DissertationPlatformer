@@ -5,9 +5,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] GameObject spawnPoint;
-    public void respawn()
+    [SerializeField] Flag flag;
+    private void Start()
     {
         transform.position = spawnPoint.transform.position;
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
+    }
+    private void Update()
+    {
+        if (flag.FlagEntered)
+        {
+            Respawn();
+        }
+    }
+    public void Respawn()
+    {
+        transform.position = spawnPoint.transform.position;
     }
 }

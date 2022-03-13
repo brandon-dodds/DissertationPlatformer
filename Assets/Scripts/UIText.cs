@@ -6,6 +6,8 @@ using System;
 public class UIText : MonoBehaviour
 {
     [SerializeField] TMP_Text text_object;
+    [SerializeField] Flag flag;
+    double timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +17,12 @@ public class UIText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeSpan time = TimeSpan.FromSeconds(Time.timeAsDouble);
-
+        timer += Time.deltaTime;
+        TimeSpan time = TimeSpan.FromSeconds(timer);
         text_object.text = time.ToString(@"mm\:ss\:ff");
+        if (flag.FlagEntered)
+        {
+            timer = 0.0f;
+        }
     }
 }
