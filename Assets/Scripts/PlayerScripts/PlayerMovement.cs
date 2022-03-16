@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
-        //rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+        //transform.Translate(new Vector2(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0));
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
         isGrounded = Physics2D.OverlapCapsule(feetPos.position, checkRadius, CapsuleDirection2D.Horizontal, 0f, whatIsGround);
         if (Input.GetAxis("Vertical") > 0 && isGrounded && timeSinceAction > actionCooldown)
         {
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = jumpGravScale;
         }
+        Debug.Log($"{rb.velocity.magnitude}");
     }
 
     void Jump()
