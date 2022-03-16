@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int jumpGravScale;
     [SerializeField] int fallGravScale; 
     float timeSinceAction = 0.0f;
+    public bool isPlayerMoving;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = jumpGravScale;
         }
-        Debug.Log($"{rb.velocity.magnitude}");
+        isPlayerMoving = rb.velocity.magnitude != 0;
     }
 
     void Jump()
