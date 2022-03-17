@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = jumpGravScale;
         }
         isPlayerMoving = rb.velocity.magnitude != 0;
+        Debug.Log(isPlayerMoving);
     }
 
     void Jump()
