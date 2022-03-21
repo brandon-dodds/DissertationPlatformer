@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = jumpGravScale;
         }
-        isPlayerMoving = rb.velocity.magnitude != 0;
+        isPlayerMoving = rb.velocity.magnitude > 0.2f;
         Debug.Log(isPlayerMoving);
     }
 
