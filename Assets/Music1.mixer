@@ -30,12 +30,15 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: acefe376e57298840b9d13ae4ccae1f4
+    name: BassVolume
   - guid: f5cdd8d1279ba7d4aa0bb622778f63ad
     name: PercussionVolume
   m_AudioMixerGroupViews:
   - guids:
     - 1a8891aa5cb9ee84fbdbd9cf4193e030
     - 78ab986b766bf20488d856ba4afb7d88
+    - 620b6487e6879a24b8be4d1cf97c65ba
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -50,6 +53,7 @@ AudioMixerGroupController:
   m_GroupID: 1a8891aa5cb9ee84fbdbd9cf4193e030
   m_Children:
   - {fileID: 91114278883914275}
+  - {fileID: 2365168457267613978}
   m_Volume: d91bae375a39d2a46bf2728cc0b06758
   m_Pitch: 5e87196023e65bf4c87d9a8c8375cdbf
   m_Send: 00000000000000000000000000000000
@@ -100,6 +104,39 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -4308465036023438544}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &1537790526946278642
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 1009875b6016593499a33354a04ef82c
+  m_EffectName: Attenuation
+  m_MixLevel: 30c0d20aecda05a49bd9fba145126402
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &2365168457267613978
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bass
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 620b6487e6879a24b8be4d1cf97c65ba
+  m_Children: []
+  m_Volume: acefe376e57298840b9d13ae4ccae1f4
+  m_Pitch: e3d618f3a3e9c064595794b197365312
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 1537790526946278642}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

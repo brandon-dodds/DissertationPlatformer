@@ -4,31 +4,50 @@ using UnityEngine;
 using UnityEngine.Audio;
 public class Music : MonoBehaviour
 {
-    [SerializeField] AudioMixer PercussionAudio;
+    [SerializeField] AudioMixer Mixer;
     [SerializeField] PlayerMovement playerMovement;
-    float volume;
+    float PercussionVolume;
+    float BassVolume;
     float playerStandStill;
+    float playerMoveTime;
     // Start is called before the first frame update
     void Start()
     {
-        PercussionAudio.SetFloat("PercussionVolume", -80.0f);
+        Mixer.SetFloat("PercussionVolume", -80.0f);
+        Mixer.SetFloat("BassVolume", -80.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        PercussionAudio.GetFloat("PercussionVolume", out volume);
-        if (playerMovement.isPlayerMoving && volume != 0.0f){
-            playerStandStill = 0;
-            PercussionAudio.SetFloat("PercussionVolume", 0.0f);
-        }
+        Mixer.GetFloat("PercussionVolume", out PercussionVolume);
+        Mixer.GetFloat("BassVolume", out BassVolume);
         if (!playerMovement.isPlayerMoving)
         {
             playerStandStill += Time.deltaTime;
         }
-        if (playerStandStill > 0.2f && volume != -80.0f)
+        if (playerMovement.isPlayerMoving)
         {
-            PercussionAudio.SetFloat("PercussionVolume", -80.0f);
+            playerMoveTime += Time.deltaTime;
+        }
+        if (playerMovement.isPlayerMoving && PercussionVolume != 0.0f)
+        {
+            playerStandStill = 0.0f;
+            Mixer.SetFloat("PercussionVolume", 0.0f);
+        }
+        if (playerStandStill > 0.2f && PercussionVolume != -80.0f)
+        {
+            Mixer.SetFloat("PercussionVolume", -80.0f);
+        }
+        if (playerMoveTime > 1.5f && BassVolume != 0.0f)
+        {
+            playerStandStill = 0.0f;
+            Mixer.SetFloat("BassVolume", 0.0f);
+        }
+        if (playerStandStill > 0.2f && BassVolume != -80.0f)
+        {
+            playerMoveTime = 0.0f;
+            Mixer.SetFloat("BassVolume", -80.0f);
         }
     }
 }

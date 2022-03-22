@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if(rb.velocity.y < 0)
         {
             rb.gravityScale = fallGravScale;
-        }
+        } 
         if(rb.velocity.y >= 0)
         {
             rb.gravityScale = jumpGravScale;
