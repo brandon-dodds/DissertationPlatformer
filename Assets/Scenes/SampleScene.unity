@@ -4085,7 +4085,6 @@ MonoBehaviour:
   jumpGravScale: 5
   fallGravScale: 7
   isPlayerMoving: 0
-  isFalling: 0
 --- !u!114 &2109838026
 MonoBehaviour:
   m_ObjectHideFlags: 0
