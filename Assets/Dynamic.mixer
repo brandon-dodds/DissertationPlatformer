@@ -20,7 +20,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Music1
+  m_Name: Dynamic
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -32,6 +32,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: acefe376e57298840b9d13ae4ccae1f4
     name: BassVolume
+  - guid: d91bae375a39d2a46bf2728cc0b06758
+    name: DynamicVolume
   - guid: f5cdd8d1279ba7d4aa0bb622778f63ad
     name: PercussionVolume
   m_AudioMixerGroupViews:
