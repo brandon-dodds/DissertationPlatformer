@@ -8,11 +8,20 @@ public class MusicChange : MonoBehaviour
     [SerializeField] AudioMixer staticSound;
     float dynamicVolume;
     float staticVolume;
+    [SerializeField] DynamicScriptableObject dynamicScriptableObject;
     // Start is called before the first frame update
     void Start()
     {
-        dynamicSound.SetFloat("DynamicVolume", 0.0f);
-        staticSound.SetFloat("StaticVolume", -80.0f);
+        if (dynamicScriptableObject.enableDynamic)
+        {
+            dynamicSound.SetFloat("DynamicVolume", 0.0f);
+            staticSound.SetFloat("StaticVolume", -80.0f);
+        }
+        else
+        {
+            dynamicSound.SetFloat("DynamicVolume", -80.0f);
+            staticSound.SetFloat("StaticVolume", 0.0f);
+        }
     }
 
     // Update is called once per frame

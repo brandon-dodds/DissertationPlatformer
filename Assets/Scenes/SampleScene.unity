@@ -974,6 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dynamicSound: {fileID: 24100000, guid: 8893297e7b7cebb4880e43a1824a8368, type: 2}
   staticSound: {fileID: 24100000, guid: cff8814a9a4dbb2418bb1b5c03703e19, type: 2}
+  dynamicScriptableObject: {fileID: 11400000, guid: 8b859e2803da20e46af0c0ec76d24347, type: 2}
 --- !u!1 &1201801586
 GameObject:
   m_ObjectHideFlags: 0
